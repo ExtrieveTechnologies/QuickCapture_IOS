@@ -4,11 +4,7 @@ QuickCapture Mobile Scanning SDK Specially designed for native IOS
 
 Compatibility
 -------------
- * **JAVA 8 Support**: QuickCapture v1 requires JAVA version 8 support for the application.
- # * **Minimum IOS SDK**: QuickCapture v1 requires a minimum API level of 21.
- # * **Compile Android SDK**: QuickCapture v1 requires you to compile against API 33 or later.
- 
-
+* **Minimum IOS**: QuickCapture v1 requires a minimum iOS 11.
 
 QuickCapture IOS SDK v 1.0.2
 
