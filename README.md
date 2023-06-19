@@ -19,7 +19,7 @@ Mainly the SDK will expose two  classes  and  two  supporting  classes :
  
 
 Based on the requirement any one or all classes can be used. And need to import those from the  SDK.
-```swift
+```swift swift code
     import QuickCaptureFW;
    ```
 ---
