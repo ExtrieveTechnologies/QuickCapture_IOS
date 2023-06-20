@@ -1,5 +1,5 @@
 # Mobile-Scanning-SDK-IOS
-QuickCapture Mobile Scanning SDK Specially designed for native IOS
+QuickCapture Mobile Scanning SDK Specially designed for native IOS v1.0
 
 
 Compatibility
