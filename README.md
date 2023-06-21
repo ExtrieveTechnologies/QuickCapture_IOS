@@ -1,3 +1,5 @@
+<img class="img-fluid" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/QuickCapture.png?raw=true" width="30%" alt="img-verification">
+
 # Mobile-Scanning-SDK-IOS v1.0
 QuickCapture Mobile Scanning SDK Specially designed for native IOS
 
