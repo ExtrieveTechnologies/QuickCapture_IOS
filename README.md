@@ -1,4 +1,6 @@
-<img class="img-fluid" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/QuickCapture.png?raw=true" width="30%" alt="img-verification">
+<img class="img-fluid" align="center" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/QuickCapture.png?raw=true" width="30%" alt="img-verification"><img align="right" class="img-fluid" width="8%" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/apple-ios.png?raw=true?raw=true?raw=true" alt="img-verification">
+
+
 
 # Mobile-Scanning-SDK-IOS v1.0
 QuickCapture Mobile Scanning SDK Specially designed for native IOS
