@@ -6,6 +6,10 @@ Compatibility
 -------------
 * **Minimum IOS**: QuickCapture v1 requires a minimum iOS 11.
 
+Download
+--------
+You can download a **.aar** library file from GitHub's [releases page](https://github.com/ExtrieveTechnologies/QuickCapture_IOS/releases).
+
 QuickCapture IOS SDK v 1.0.2
 
 ## API  and  integration  Details
