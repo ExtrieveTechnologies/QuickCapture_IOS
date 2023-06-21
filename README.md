@@ -8,7 +8,7 @@ Compatibility
 
 Download
 --------
-You can download a **.aar** library file from GitHub's [releases page](https://github.com/ExtrieveTechnologies/QuickCapture_IOS/releases).
+You can download sdk as **framework** in **.zip** file from GitHub's [releases page](https://github.com/ExtrieveTechnologies/QuickCapture_IOS/releases).
 
 QuickCapture IOS SDK v 1.0.2
 
