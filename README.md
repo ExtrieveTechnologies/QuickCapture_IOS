@@ -17,9 +17,9 @@ QuickCapture IOS SDK v 1.0.2
 Mainly the SDK will expose two  classes  and  two  supporting  classes :
 
  1. **CameraHelper**  -  *Handle the  camera  related  operations. Basically,  an  activity.* 
- 2. **ImgHelper**  - *Purpose  of  this  class  is  to  handle  all  imaging  related operations.*
- 3. **Config**  -  *Holds  various configurations  for  camera.* 
- 4. **ImgException**  -  *Handle  all exceptions  on  Image  related  operations  on ImgHelper.*
+ 2. **ImgHelper**  - *Purpose of this class is to handle all imaging related operations.*
+ 3. **Config**  -  *Holds various configurations of SDK.* 
+ 4. **ImgException**  -  *Handle all exceptions on Image related operations on ImgHelper.*
  
 
 Based on the requirement any one or all classes can be used. And need to import those from the  SDK.
