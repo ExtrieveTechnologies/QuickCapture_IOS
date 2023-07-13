@@ -14,7 +14,7 @@ QuickCapture Mobile Scanning SDK Specially designed for native IOS
 
 Compatibility
 -------------
-* **Minimum IOS**: QuickCapture v1 requires a minimum iOS 11.
+* **Minimum IOS**: QuickCapture v2 requires a minimum iOS 11.
 
 Download
 --------
