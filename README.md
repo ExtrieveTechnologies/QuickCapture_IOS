@@ -1,5 +1,8 @@
 <img class="img-fluid" align="center" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/QuickCapture.png?raw=true" width="30%" alt="img-verification"><img align="right" class="img-fluid" width="8%" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/apple-ios.png?raw=true?raw=true?raw=true" alt="img-verification">
 
+> **End of support Notice** :  QuickCapture SDK Android **V1** deprecated by June. 2023.For any further updates and support, can use **V2**
+> which having no major modifications.But with improved funcionalities,feature additions and fixes.
+
 ### Other available platform options
 - [Android](https://github.com/ExtrieveTechnologies/QuickCapture_Android)
 - [Fultter Plugin](https://pub.dev/packages/quickcapture)
