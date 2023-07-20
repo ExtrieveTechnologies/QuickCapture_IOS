@@ -1,3 +1,5 @@
+
+
 <img class="img-fluid" align="center" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/QuickCapture.png?raw=true" width="30%" alt="img-verification"><img align="right" class="img-fluid" width="8%" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/apple-ios.png?raw=true?raw=true?raw=true" alt="img-verification">
 
 ## Document Scanning-Capture SDK IOS v2
@@ -37,137 +39,203 @@ Mainly the SDK will expose two  classes  and  two  supporting  classes :
  
 
 Based on the requirement any one or all classes can be used. And need to import those from the  SDK.
-- swift
-```swift 
-    import QuickCaptureFW;
+```swift
+//Swift
+import QuickCaptureFW;
 ```
-- Objective-C
-```swift swift code
-    import QuickCaptureFW;
+```objectivec
+//Objective-C
+#import <QuickCaptureSDK/QuickCaptureFW.h>
+#import <QuickCaptureSDK/QuickCaptureSDK-Swift.h>
 ```
 ---
 ## CameraHelper
-This  class  will  be  implemented  as  an  activity.  This  class  can  be  initialized  as  intent.
+This  class  will  be  implemented  as  an  activity.  This  class  can  be  initialized  as  normal class.
 ```swift
-    var cameraHelper = CameraHelper();
+//Swift
+var cameraHelper = CameraHelper();
 ```
-
+```objectivec
+//Objective-C
+CameraHelper *camerahelper = [[CameraHelper alloc] init];
+```
 ```swift
+//Swift
 cameraHelper.StartCapture(
-    sender:self,
-    //pathtowritabledirectorywherecaptured
-    //files are stored temporarily for processing 
-    workingDirectory:“”,
-    callback:cameraHelperCallBack)
+sender:self,
+//pathtowritabledirectorywherecaptured
+//files are stored temporarily for processing 
+workingDirectory:“”,
+callback:cameraHelperCallBack)
 
-func cameraHelperCallback(_ImageArray:[String])->Void{
+func cameraHelperCallback(_ImageArray:[String])->Void {
     //paths-  arrayofcapturedimagesavailablehere.
     //Use returned images
 }
 ```
+```objectivec
+//Objective-C
+@property (nonatomic, copy, nullable) CaptureCallbackBlock captureCallback;
+self.captureCallback = ^(NSArray<NSString *> * _Nonnull imageArray) {
+	if (imageArray.count == 0) {
+	    NSLog(@"Error: no images captured");
+	}
+	else{  
+	    ///imageArray is the Argument where you get the Array of Strings
+	    ///these strings are the path of captured image saved in WorkingDirectory temporarily
+	    ///Note: Don't forget to delete image files after completion of task
+	    self->_CapturedImages = imageArray;
+	}
+};
+
+//Starts Camera Capture Activity
+[cameraHelper StartCapture:self :workingDir : self.captureCallback];
+	
+```
 Camera Helper having a supporting class with static configuration  
-CameraSupport.CamConfigClass.CamConfigClass  :  contains  various  configurations  as  follows:
+Config.CaptureSupport  :  contains  various  configurations  as  follows:
 
 - **OutputPath** - To set the output directory in which the captured images will be saved.  Base  app should  have  rights  to write  to the  provided  path.
-	```java
-	CameraSupport.CamConfigClass.OutputPath = “pass output path as 	string”;
+	```swift
+	//Swift
+	Config.CaptureSupport.OutputPath = “pass output path as string”
+	//Objective-C
+	CaptureSupport.OutputPath = “pass output path as string”;
 	```
 - **MaxPage** - To set the number of captures to do on each camera session. And this can also  control  whether  the  capture  mode  is  single  or  multi  i.e
 	> if  MaxPage  <= 0 /  not  set:  means  unlimited.If  MaxPage  >= 1:
 	> means  limited.
-	```java
+	```swift
 	// MaxPage <= 0  : Unlimited Capture Mode  
 	// MaxPage = 1   : Limited Single Capture  
-	// MaxPage > 1   : Limited Multi Capture Mode  
-	public static int MaxPage = 0;
+	// MaxPage > 1   : Limited Multi Capture Mode 
+	
+	//Swift 
+	Config.CaptureSupport.MaxPage = 0
+	//Objective-C
+	CaptureSupport.MaxPage = 0;
 	```
 - **ColorMode**  -  To  Set  the  capture  color  mode-  supporting  color  and  grayscale.
+	```swift
+	//Swift
+	Config.CaptureSupport.ColorMode = ColorModes.RGB
+	//Objective-C
+	CaptureSupport.ColorMode = ColorModesRGB
+	```
 - **EnableFlash**  -  Enable  Document  capture  specific  flash  control  for  SDK  camera.
-	```java
-	CameraSupport.CamConfigClass.EnableFlash  =  true;
+	```swift
+	//Swift
+	Config.CaptureSupport.EnableFlash  =  true;
+	//Objective-C
+	CaptureSupport.EnableFlash  =  true;
 	```
 - **CaptureSound**  -  To  Enable  camera  capture  sound.
-	```java
-	CameraSupport.CamConfigClass.CaptureSound  =  true;
-	```
-- **DeviceInfo**  -  Will  share  all  general  information  about  the  device.
-	```java
-	CameraSupport.CamConfigClass.DeviceInfo;
+	```swift
+	//Swift
+	Config.CaptureSupport.CaptureSound  =  true;
+	//Objective-C
+	CaptureSupport.CaptureSound  =  true;
 	```
 - **SDKInfo**  - Contains  all  version  related  information  on  SDK.
-	```java
-	CameraSupport.CamConfigClass.SDKInfo;
+	```swift
+	//Swift
+	Config.CaptureSupport.SDKInfo
+	//Objective-C
+	CaptureSupport.SDKInfo;
 	```
 
-- CameraToggle  -  Toggle  camera  between  front  and  back.
-	```java
-	CameraSupport.CamConfigClass.CameraToggle  =  2;
+- **CameraToggle**  -  Toggle  camera  between  front  and  back.
+	```swift
+	//Swift
+	Config.CaptureSupport.CameraToggle  =  2;
+	//Objective-C
+	CaptureSupport.CameraToggle  =  2;
 	//0-Disable camera toggle option.
 	//1-Enable camera toggle option with Front camera by default.
 	//2-Enable camera toggle option with Back camera  by default.
 	```
-
-- **GetTiffForLastCapture**  -  Build  Tiff  file  output  file  from  last  captured  set  of  images.
-	```java
-	CameraHelper.GetTiffForLastCapture(outPutFileWithpath);
-	//on success, will respond with string : "SUCCESS:::TiffFilePath";
-	//use  ":::"  char.  key  to  split  the  response.
-	//on failure,will respond with string : "FAILED:::Reason for failure";
-	//use ":::" char. key to split the response.
-	//on failure, error details can collect from CameraSupport.CamConfigClass.LastLogInfo
-	```
-- **GetPDFForLastCapture**  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
-	```java
-	CameraHelper.GetPDFForLastCapture(outPutFileWithpath);
-	//on success, will respond with string : "SUCCESS:::PdfFilePath";
-	//use  ":::"  char.  key  to  split  the  response.
-	//on failure,will respond with string : "FAILED:::Reason for failure";
-	//use ":::" char. key to split the response.
-	//on failure, error details can collect from CameraSupport.CamConfigClass.LastLogInfo
-	```
 - **BuildTiff**  -  Build  .tiff  file  output  from  the list  of  images  shared.
-	```java
-	CameraHelper.BuildTiff(ArrayList<String>  ImageCol,  String  OutputTiffFilePath)
-	 *@param  "Image  File  path  collection  as  ArrayList<String>"
+	```swift
+	//Swift
+	do
+    {
+        let status = try cameraHelper.BuildTiff(ImageArray: fileArray, TiffFilePath: outputTiffURL.path)
+        print(status)
+    }
+    catch{
+        print(error)
+    }
+	 *@param  "Image  File  path  collection  as  Array of String"
 	 *@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::TIFF  file  path".
 	```
+	```objectivec
+	//Objective-C
+	NSString* str = [cameraHelper BuildTiff:imagePathArray :outputTiffURL.path :nil];
+	*@param  "Image  File  path  collection  as  Array of String"
+	*@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::TIFF  file  path".
+	```
 - **BuildPDF**  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
-	```java
-	CameraHelper.BuildPDF(outPutFileWithpath);
-	*@param  "Image  File  path  collection  as  ArrayList<String>"
+	```swift
+	//Swift
+	do
+    {
+       let status = try cameraHelper.BuildPdf(ImageArray: fileArray, PdfFilePath: outputPDFURL.path)
+       print(status)
+    }
+    catch{
+        print(error)
+    }
+	*@param  "Image  File  path  collection  as  Array of String"
 	*@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::PDF  file  path".
 	```
-## ImgHelper
-Following  are  the  options/methods  available  from  class  **ImgHelper** :
-```java
-ImgHelper ImageHelper = new ImgHelper(this);
-```
+	```objectivec
+	//Objective-C
+	NSString* str = [cameraHelper BuildPdf:imagePathArray :outputPdfURL.path :nil];
+	*@param  "Image  File  path  collection  as  Array of String"
+	*@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::PDF  file  path".
+	```
+	## ImgHelper
+	Following  are  the  options/methods  available  from  class  **ImgHelper** :
+	To instanciate this class
+	```swift
+	//Swift
+	let ImgHelper = ImgHelper.GetInstance()
+	```
+	```objectivec
+	//Objective-C
+	ImgHelper *ImgHelper = [ImgHelper GetInstance];
+	```
 - ***SetImageQuality*** - *Set the Quality of the image, Document_Qualityisused.If documents are used further for any automations and OCR, use Document_Quality.*
 	 >*Available Image Qualities* :
 		1. Photo_Quality.
 		2. Document_Quality.
 		3. Compressed_Document.
 		
-	```java
-	ImageHelper.SetImageQuality(ImgHelper.ImageQuality.Photo_Quality.ordinal());
+	```swift
+	//Swift
+	ImgHelper.shared.setImageQuality(value: ImageQuality.Document_Quality)
 	//OR
-	ImageHelper.SetImageQuality(1);//0,1,2 - Photo_Quality, Document_Quality, Compressed_Document
+	ImgHelper.setImageQuality(value: ImageQuality.Document_Quality)
+	```
+	```objectivec
+	//Objective-C
+	[ImgHelper setImageQuality:ImageQualityDocument_Quality];
 	```
 - ***SetPageLayout*** - *Set the Layout for the images generated/processed by the system.*
-	```java
-	ImageHelper.SetPageLayout(ImgHelper.LayoutType.A4.ordinal());
+	```swift
+	ImgHelper.shared.setPageLayout(LayoutType.A4)
 	//OR
-	ImageHelper.SetPageLayout(4);//A1-A7(1-7),PHOTO,CUSTOM,ID(8,9,10)
+	ImgHelper.setPageLayout(LayoutType.A4)
 	```
 	 >*Available layouts* : A1, A2, A3, **A4**, A5, A6, A7,PHOTO & CUSTOM
 	 
 	*A4 is the most recommended layout for document capture scenarios.*
 	 
 - ***SetDPI*** - *Set DPI (depth per inch) for the image.*
-	```java
-	ImageHelper.SetDPI(ImgHelper.DPI.DPI_200.ordinal());
+	```swift
+	ImgHelper.shared.setDPI(DPI._200)
 	//OR
-	ImageHelper.SetDPI(200);//int dpi_val = 150, 200, 300, 500, 600;
+	ImgHelper.setDPI(DPI._200)
 	```
 	
 	 >*Available DPI* : DPI_150, DPI_200, DPI_300, DPI_500, DPI_600
@@ -175,37 +243,75 @@ ImgHelper ImageHelper = new ImgHelper(this);
 	 *150 & 200 DPI is most used.And 200 DPI recommended for OCR and other image extraction prior to capture.*
 	 
 - ***GetThumbnail*** - *This method Will build thumbnail for the given image in custom width,height & AspectRatio.*
-	```java
-   
-	Bitmap thumb = ImageHelper.GetThumbnail(ImageBitmap, 600, 600, true);
+	```swift
+   //Swift
+   do
+   {
+	   try UIImage thumb = ImgHelper.shared.GetThumbnail(bm: image, rHeight: 600, rWidth: 600, AspectRatio: true)
+   }
+	catch
+	{
+		print(error);
+	}
 	/*
-	Bitmap GetThumbnail(
-		@NonNull  Bitmap bm,
+	UIImage GetThumbnail(
+		@NonNull  UIImage bm,
 	    int reqHeight,
 	    int reqWidth,
 	    Boolean AspectRatio )throws ImgException.
 	*/
 	```
-- ***CompressToJPEG*** - *This method will Compress the provided bitmap image and will save to given path..*
-	```java
-
-	Boolean Iscompressed = CompressToJPEG(bitmap,outputFilePath);
-	/*
-	Boolean CompressToJPEG(Bitmap bm,String outputFilePath)
-		throws ImgException
-
+	```objectivec
+	//Objective-C
+	 UIImage *thumb = [ImageHelper GetThumbnail:image :600 :600 :true :&err];
+	 /*
+	 UIImage GetThumbnail(
+		@NonNull  UIImage image,
+	    int reqHeight,
+	    int reqWidth,
+	    Boolean AspectRatio,
+	    NSError err ).
 	*/
+	```
+- ***CompressToJPEG*** - *This method will Compress the provided bitmap image and will save to given path..*
+	```swift
+	//Swift
+	Boolean Iscompressed = ImgHelper.shared.CompressToJPEG(image: image, outputURI: jpegURL.absoluteString)
+	/*
+	Boolean CompressToJPEG(UIImage image,String outputFilePath)
+		throws ImgException
+	*/
+	```
+	```objectivec
+	//Objective-C
+	BOOL isCompressed = [ImageHelper CompressToJPEG:image :outputJPEGURL.absoluteString];
 	```
 	
 - ***rotateBitmap*** - *This method will rotate the image to preferred orientation.*
-	 ```java
-
-	Bitmap rotatedBm = rotateBitmapDegree(nBm, RotationDegree);
+	 ```swift
+	 //Swift
+	UIImage rotatedBm = ImgHelper.shared.rotateBitmap(image: img, orientation: ImageOrientation.left);
 	/*
-	Bitmap rotateBitmapDegree(Bitmap bitmap,int Degree)
+	UIimage rotateBitmapDegree(UIimage image,enum ImageOrientation)
 		throws ImgException
+	
+	Available Options for Orientation
+	enum ImageOrientation :
+		up
+	    down
+	    left
+	    right
+	    upMirrored
+	    downMirrored
+	    leftMirrored
+	    rightMirrored
 	*/
 	```	
+	```objectivec
+	//Objective-C
+	UIImage *rotatedImage = [ImageHelper rotateBitmap:image :ImageOrientationUp :&err];
+	
+	```
 
 ## ImgException 
 As a part of exceptional error handling **ImgException** class is available.
@@ -219,6 +325,7 @@ As a part of exceptional error handling **ImgException** class is available.
 	- BITMAP_RESIZE_ERROR= **-106**;
 	- CAMERA_HELPER_ERROR= **-107**;
 	- LOG_CREATION_ERROR= **-108**;
+	- IMAGE_COMPRESSION_ERROR= **-109**;
 	
 ## SDK Licensing
 
@@ -226,16 +333,19 @@ As a part of exceptional error handling **ImgException** class is available.
 > **QuickCapture** SDK is absolutely **free** to use.But for image operations on enterprise use cases, license required.
 > [Click for license details ](https://www.extrieve.com/mobile-document-scanning/)
 
-```java
-	
-String licData = readAssetFile("com.extrieve.lic", this);  
-Boolean IsUnlocked = ImageHelper.UnlockImagingLibrary(licData)
+```swift
+//Swift
+let licenseData : String = try String(contentsOf: licenseFileURL) 
+Bool IsUnlocked = ImgHelper.shared.UnlockLibrary(mainBundle: Bundle.main, licenseFile: licenseData)
 
 /*
-boolean UnlockImagingLibrary(String licenseFileData)
+Bool UnlockLibrary(Bundle.main, String licenseFileData)
 	throws Exception
 */
-
+```
+```objectivec
+//Objective-C
+BOOL isUnLocked = [ImgHelper UnlockLibrary:NSBundle.mainBundle :licenseData];
 ```
 
 	
