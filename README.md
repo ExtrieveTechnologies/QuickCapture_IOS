@@ -1,5 +1,3 @@
-
-
 <img class="img-fluid" align="center" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/QuickCapture.png?raw=true" width="30%" alt="img-verification"><img align="right" class="img-fluid" width="8%" src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/apple-ios.png?raw=true?raw=true?raw=true" alt="img-verification">
 
 ## Document Scanning-Capture SDK IOS v2
@@ -136,6 +134,13 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 	//Objective-C
 	CaptureSupport.CaptureSound  =  true;
 	```
+- **ShowCaptureCountAndLimit**  - Enable/Disable  Capture count as toast at bottom while capturing from  SDK camera.
+	```swift
+	//Swift
+	Config.CaptureSupport.ShowCaptureCountAndLimit  =  true;
+	//Objective-C
+	CaptureSupport.ShowCaptureCountAndLimit  =  true;
+	```
 - **SDKInfo**  - Contains  all  version  related  information  on  SDK.
 	```swift
 	//Swift
@@ -158,13 +163,14 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 	```swift
 	//Swift
 	do
-    {
-        let status = try cameraHelper.BuildTiff(ImageArray: fileArray, TiffFilePath: outputTiffURL.path)
-        print(status)
-    }
-    catch{
-        print(error)
-    }
+	{
+		let status = try cameraHelper.BuildTiff(ImageArray: fileArray, TiffFilePath: outputTiffURL.path)
+		print(status)
+	}
+	catch
+	{
+		print(error)
+	}
 	 *@param  "Image  File  path  collection  as  Array of String"
 	 *@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::TIFF  file  path".
 	```
@@ -177,14 +183,13 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 - **BuildPDF**  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
 	```swift
 	//Swift
-	do
-    {
-       let status = try cameraHelper.BuildPdf(ImageArray: fileArray, PdfFilePath: outputPDFURL.path)
-       print(status)
-    }
-    catch{
-        print(error)
-    }
+	do {
+		let status = try cameraHelper.BuildPdf(ImageArray: fileArray, PdfFilePath: outputPDFURL.path)
+		print(status)
+	}
+	catch {
+		print(error)
+	}
 	*@param  "Image  File  path  collection  as  Array of String"
 	*@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::PDF  file  path".
 	```
@@ -245,10 +250,10 @@ Config.CaptureSupport  :  contains  various  configurations  as  follows:
 - ***GetThumbnail*** - *This method Will build thumbnail for the given image in custom width,height & AspectRatio.*
 	```swift
    //Swift
-   do
-   {
+   	do
+   	{
 	   try UIImage thumb = ImgHelper.shared.GetThumbnail(bm: image, rHeight: 600, rWidth: 600, AspectRatio: true)
-   }
+   	}
 	catch
 	{
 		print(error);
