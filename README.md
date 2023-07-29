@@ -24,7 +24,7 @@ Download
 --------
 You can download sdk as **framework** in **.zip** file from GitHub's [releases page](https://github.com/ExtrieveTechnologies/QuickCapture_IOS/releases).
 
-QuickCapture IOS SDK v 2.0.0.0
+QuickCapture IOS SDK **v 2.0.0.5**
 
 ## API  and  integration  Details
 
