@@ -251,6 +251,18 @@ Config.CaptureSupport.EnableFlash  =  true;
 
 CaptureSupport.EnableFlash  =  true;
 ```
+- ****`EnableTorchOnLowLight`**** - Automatically turns on the device’s torch/flashlight when low-light conditions are detected, ensuring clearer and more readable captures.
+
+  ```swift
+  //Swift
+  
+  Config.CaptureSupport.EnableTorchOnLowLight = true;
+  ```
+  ```objectivec
+  //Objective-C
+
+  CaptureSupport.EnableTorchOnLowLight = true;
+  ```
 
 - ****`CaptureSound`****  -  To  Enable  camera  capture  sound.
 
@@ -305,6 +317,35 @@ Config.CaptureSupport.CameraToggle  =  2;
 
 CaptureSupport.CameraToggle  =  2;
 ```
+
+- ****`BottomStampData`**** - Allows adding custom text as a bottom stamp on captured documents.
+	- ****`$`****: Inserts a line break.  
+	- ****`{DATETIME}`****: PlaceHolder that Prints the current date and time from the device.
+
+```swift
+//Swift
+
+Config.CaptureSupport.BottomStampData = "{DATETIME} $ Extrieve Technologies";
+```
+```objectivec
+//Objective-C
+
+CaptureSupport.BottomStampData = "{DATETIME} $ Extrieve Technologies";
+```
+
+- ****`Review`**** - Contains review related configurations. ****Config.CaptureSupport.Review**** contains configurations as follows:
+	- ****`enableAutoCorrectDocAngle`**** -  Enables or disables AI-based automatic document rotation correction.
+   	```swift
+    //Swift
+
+	Config.CaptureSupport.Review.enableAutoCorrectDocAngle = true;
+    ```
+    ```objectivec
+    // Objective-C
+
+    CaptureSupport.Review.enableAutoCorrectDocAngle = true;
+    ```
+    
 
 
 ## 3. `ImgHelper`
@@ -574,6 +615,71 @@ NSString *outputPath = [ImgHelper.shared BuildPdf:ImageArray PdfFilePath:pdfFile
 >  - LayoutType: `A4`
 
 >  - ResizeMode: `PRESERVE_ASPECT_ONLY`
+
+- ****ReadImageInfo**** - Reads metadata from an image file and returns a JSON string containing information such as PageCount, Height, Width, and ColorType (`COLOR`, `BW`, or `GREY`).
+  
+ 	Supported image formats:
+	-   **TIFF**
+	-   **JPEG / JPG**
+	-   **PNG**
+	-   **BMP**
+
+   ```swift
+   //Swift
+   
+	Do{
+	   let jsonString = ImgHelper.shared.ReadImageInfo(inputUrl: imagepath)
+	   print(jsonString)
+   }catch{
+       print(error)
+   }
+   ```
+
+   ```objectivec
+   //Objective-C
+
+   NSString *jsonString = [ImgHelper.shared ReadImageInfo:imagePath];
+   NSLog(@"%@", jsonString);
+   ```
+   
+  ****Parameter****
+  - ****`inputUrl`**** - Image file path as `String`.
+ 
+  ****ReturnValue****
+  
+  ****Failure Response**** (Returned as String containing JSON)
+  ````json
+  {
+	 "Status": false,
+	 "ERROR_MESSAGE": "Reason for failure"
+  }
+  ````
+  ****Success Response**** (Returned as String containing JSON)
+  ````json
+  {
+	 "FILESIZE": "146 KB",
+	 "TOTAL_PAGES": 1,
+	 "INFORMATION": [
+	  {
+		"PAGENO": 1,
+		"WIDTH": 475,
+		"HEIGHT": 307,
+		"COLOR_TYPE": "GREY"
+		}
+	  ]
+	}
+	````
+	****Field Description****
+	
+	| Field        | Description                                           |
+	|-------------|-------------------------------------------------------|
+	| FILESIZE    | Total size of the image file in KB                    |
+	| TOTAL_PAGES | Number of pages (TIFF may contain multiple pages)     |
+	| PAGENO      | Page number of the image                              |
+	| WIDTH       | Width of the image in pixels                          |
+	| HEIGHT      | Height of the image in pixels                         |
+	| COLOR_TYPE  | Image color type: COLOR, GREY, or BW                  |
+
 
 ## ImgException
 
