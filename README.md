@@ -1,16 +1,26 @@
 <img class="img-fluid" align="center" src="https://raw.githubusercontent.com/ExtrieveTechnologies/QuickCapture/main/img/QuickCapture.png" width="30%" alt="img-verification"><img align="right" class="img-fluid" width="8%" src="https://raw.githubusercontent.com/ExtrieveTechnologies/QuickCapture/main/img/apple-ios.png" alt="img-verification">
 
-<p align="left">
-  <a href="https://github.com/ExtrieveTechnologies"><b>🏠 Extrieve GitHub Home</b></a>
-  &nbsp;•&nbsp;
-   <a href="https://github.com/ExtrieveTechnologies/QuickCapture"><b>🏠 Extrieve QuickCapture Home</b></a>
-  &nbsp;•&nbsp;
-  <a href="https://www.extrieve.com"><b>🌐 Website</b></a>
-  &nbsp;•&nbsp;
-  <a href="https://docs.extrieve.in/"><b>📘 Docs</b></a>
-  &nbsp;•&nbsp;
-  <a href="https://github.com/orgs/ExtrieveTechnologies/discussions"><b>💬 Discussions</b></a>
-</p>  
+<p align="center">
+  <a href="https://github.com/ExtrieveTechnologies">
+    <img src="https://img.shields.io/badge/GitHub-Extrieve-181717?style=flat&logo=github" />
+  </a>
+  <a href="https://github.com/ExtrieveTechnologies/QuickCapture">
+    <img src="https://img.shields.io/badge/Repo-QuickCapture-blue?style=flat&logo=github" />
+  </a>
+  <a href="https://www.extrieve.com">
+    <img src="https://img.shields.io/badge/Website-extrieve.com-0A66C2?style=flat&logo=google-chrome&logoColor=white" />
+  </a>
+  <a href="https://docs.extrieve.in/">
+    <img src="https://img.shields.io/badge/Docs-Developer%20Portal-informational?style=flat&logo=readthedocs&logoColor=white" />
+  </a>
+  <a href="https://github.com/orgs/ExtrieveTechnologies/discussions">
+    <img src="https://img.shields.io/badge/Community-Discussions-purple?style=flat&logo=github" />
+  </a>
+  <a href="https://contact.extrieve.com?ptype=QCIOS">
+    <img src="https://img.shields.io/badge/Contact-Talk%20to%20Us-success?style=flat&logo=maildotru&logoColor=white" />
+  </a>
+</p>
+
 
 ## Document Scanning-Capture SDK IOS v4.0
 
