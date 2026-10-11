@@ -1,89 +1,75 @@
-<img class="img-fluid" align="center" src="https://raw.githubusercontent.com/ExtrieveTechnologies/QuickCapture/main/img/QuickCapture.png" width="30%" alt="img-verification"><img align="right" class="img-fluid" width="8%" src="https://raw.githubusercontent.com/ExtrieveTechnologies/QuickCapture/main/img/apple-ios.png" alt="img-verification">
-
 <p align="left">
-  <a href="https://github.com/ExtrieveTechnologies"><img src="https://img.shields.io/badge/GitHub-Extrieve%20Org-181717?style=flat&logo=github" alt="GitHub Org" /></a>
-  <a href="https://github.com/ExtrieveTechnologies/QuickCapture"><img src="https://img.shields.io/badge/Repo-QuickCapture-blue?style=flat&logo=github" alt="QuickCapture Repo" /></a>
-  <a href="https://www.extrieve.com"><img src="https://img.shields.io/badge/Website-extrieve.com-0A66C2?style=flat&logo=google-chrome&logoColor=white" alt="Web" /></a>
-  <a href="https://www.linkedin.com/company/extrieve"><img src="https://img.shields.io/badge/LinkedIn-Extrieve-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://blog.extrieve.com/"><img src="https://img.shields.io/badge/Blog-Extrieve%20Insights-FF6F00?style=flat&logo=blogger&logoColor=white" alt="Blog" /></a>
+  <img src="https://github.com/ExtrieveTechnologies/QuickCapture/blob/main/img/QuickCapture.png?raw=true" width="30%" alt="QuickCapture document scanning SDK logo">
 </p>
 
-<p align="left">
-  <a href="https://github.com/orgs/ExtrieveTechnologies/discussions"><img src="https://img.shields.io/badge/Community-Discussions-purple?style=flat&logo=github" alt="Community" /></a>
-  <a href="https://github.com/badges/shields/discussions" alt="Discussions"><img src="https://img.shields.io/github/discussions/badges/shields" /></a>
-  <a href="https://contact.extrieve.com?ptype=QC-IOS"><img src="https://img.shields.io/badge/Contact-Talk%20to%20Us-success?style=flat&logo=maildotru&logoColor=white" alt="Contact" /></a>
-</p>
+# QuickCapture iOS SDK: Document Scanning for Native iOS Apps
 
-## Document Scanning-Capture SDK IOS v4.0
+**QuickCapture for iOS** (v4.0) is Extrieve's document scanning and imaging SDK for native iOS apps written in Swift or Objective-C. It captures documents with the device camera, then crops, optimises and compresses the image and outputs JPEG, PDF or TIFF.
 
-QuickCapture Mobile Scanning SDK Specially designed for native IOS from [Extrieve](https://www.extrieve.com/).
-> It's not "****just****" a scanning SDK. It's a "****document****"
-scanning/capture SDK evolved with ****Best Quality****, ****Highest Possible Compression****, ****Image Optimisation****, keeping output quality of the document in mind.  
+[Product page](https://www.extrieve.com/platforms/quickcapture/) · [Documentation](https://docs.extrieve.in/) · [All platforms](https://github.com/ExtrieveTechnologies/QuickCapture) · [Android demo app](https://play.google.com/store/apps/details?id=com.extrieve.demo) · [Discussions](https://github.com/orgs/ExtrieveTechnologies/discussions/categories/technical-support) · [Contact](https://www.extrieve.com/contact/)
 
-> Control ****DPI****,****Layout**** & ****Size**** of output images and can convert them into ****PDF & TIFF****
-  
-> ****QR code**** & ****BAR Code**** Scanning & Generation
-  
-> ****Developer-friendly**** & ****Easy to integrate**** SDK.
-  
-> ****Works entirely offline****, locally on the device, with ****no data transferred to any server or third party****.
-  
-  *_For reduced build size if needed, an initial internet connection may optionally be required to fetch ML data or resource files, depending on the specific integration and features used by the consumer application_*
-  
-> ****End of support Notice**** :  QuickCapture SDK IOS ****V1**** deprecated by June. 2023.For any further updates and support, can use ****V2****
+## Highlights
 
-> which having no major modifications.But with improved funcionalities,feature additions and fixes.
-> QuickCapture SDK Android ****V2**** deprecated by Dec. 2024.For any further updates and support, can use ****V4**** & bugfixes on ****V3****
-  
-### Other available platform options
+- **Built for documents:** capture tuned for document quality, strong compression and image optimisation, with the readability of the output kept in mind.
+- **Output control:** set the DPI, page layout and size of output images, and convert them to PDF and TIFF.
+- **QR code and barcode:** scanning and generation.
+- **Face detection and matching:** detect faces in documents and compare them on the device.
+- **Works offline:** runs locally on the device, with no data transferred to any server or third party.
+- **Developer friendly:** delivered as a framework for Swift and Objective-C projects.
 
-- [Android](https://github.com/ExtrieveTechnologies/QuickCapture_Android)
+*To reduce build size, an initial internet connection may optionally be needed to fetch ML data or resource files, depending on the integration and the features used by the host application.*
 
-- [Fultter Plugin](https://pub.dev/packages/quickcapture)
+> **End of support notice**
+> - QuickCapture iOS **V1** was deprecated in June 2023.
+> - QuickCapture iOS **V2** was deprecated in December 2024.
+> - Use **V4** for new features and updates. **V3** receives bug fixes only.
 
-- [Web SDK](https://github.com/ExtrieveTechnologies/QuickCapture_WEB)
+## Contents
 
-  
-
-  
+- [Compatibility](#compatibility)
+- [Run-time requirements](#run-time-requirements)
+- [Installation](#installation)
+- [API and integration details](#api-and-integration-details)
+- [1. CameraHelper](#1-camerahelper)
+- [2. Config](#2-config)
+- [3. ImgHelper](#3-imghelper)
+- [ImgException](#imgexception)
+- [4. HumanFaceHelper](#4-humanfacehelper)
+- [Notes on accuracy](#notes-on-accuracy)
+- [Other platforms and related SDKs](#other-platforms-and-related-sdks)
+- [Support](#support)
 
 ## Compatibility
 
-* ****Minimum IOS version****: QuickCapture v4.0 requires a minimum **iOS 12**.
-* Compatible with ****Swift**** and ****Objective-C****
+* **Minimum IOS version**: QuickCapture v4.0 requires a minimum **iOS 12**.
+* Compatible with **Swift** and **Objective-C**
 * Required Operating System: **iphoneos**
 
-  ## Run-time requirement
+## Run-time requirements
 
 - [x] This SDK is designed to run on officially supported Android & **iOS devices** only.
 - [x] Supported CPU architectures: **arm64**.
 - [x] Simulator and emulator environments are not supported.For testing on simulators, please contact the development support team to request a dedicated test version compatible with those environments.
 
+## Installation
 
-Download
---------
+You can download sdk as **framework** in **.zip** file from GitHub's [releases page](https://github.com/ExtrieveTechnologies/QuickCapture_IOS/releases).
 
-You can download sdk as ****framework**** in ****.zip**** file from GitHub's [releases page](https://github.com/ExtrieveTechnologies/QuickCapture_IOS/releases).
+QuickCaptureSDK IOS  **v4.0**
 
-  
-
-QuickCaptureSDK IOS  ****v4.0****
-
-  
-
-## API  and  integration  Details
+## API and integration details
 
 SDK has three core classes and supporting classes :
 
-1. ****`CameraHelper`****  -  *_Handle the  camera  related  operations. Basically,  an  activity._*
+1. **`CameraHelper`**  -  *_Handle the  camera  related  operations. Basically,  an  activity._*
 
-2. ****`ImgHelper`****  - *_Purpose of this class is to handle all imaging related operations._*
+2. **`ImgHelper`**  - *_Purpose of this class is to handle all imaging related operations._*
 
-3. ****`HumanFaceHelper`**** - *_Advanced Ai based utility class handles all functionalities such as face detection, extraction,matching & related functions._*
+3. **`HumanFaceHelper`** - *_Advanced Ai based utility class handles all functionalities such as face detection, extraction,matching & related functions._*
 
-4. ****`Config`****  -  *_Holds various configurations of SDK._*
+4. **`Config`**  -  *_Holds various configurations of SDK._*
 
-5. ****`ImgException`****  -  *_Handle all exceptions on Image related operations on ImgHelper._*
+5. **`ImgException`**  -  *_Handle all exceptions on Image related operations on ImgHelper._*
 
 Based on the requirement any one or all classes can be used. And need to import those from the  SDK.
 ```swift
@@ -95,9 +81,7 @@ import QuickCaptureFW;
 
 #import <QuickCaptureSDK/QuickCaptureFW.h>
 #import <QuickCaptureSDK/QuickCaptureSDK-Swift.h>
-
 ```
-
 ---
 
 ## 1. CameraHelper
@@ -113,7 +97,7 @@ var cameraHelper = CameraHelper();
 
 CameraHelper *camerahelper = [[CameraHelper alloc] init];
 ```
-With an activity call, triggering the SDK for capture activity can be done.Most operations in ****`CameraHelper`**** is ****view based****.
+With an activity call, triggering the SDK for capture activity can be done.Most operations in **`CameraHelper`** is **view based**.
 ```swift
 //Swift
 
@@ -133,7 +117,6 @@ func cameraHelperCallback(_ImageArray:[String])->Void {
 
 }
 ```
-
 ```objectivec
 //Objective-C
 
@@ -156,13 +139,13 @@ self.captureCallback = ^(NSArray<NSString *> * _Nonnull imageArray) {
 ```
 SDK is having multiple flows as follows :
 
-* ****CAMERA_CAPTURE_REVIEW**** - *_Default flow. Capture with SDK Camera_ ****_->_**** _review._*
+* **CAMERA_CAPTURE_REVIEW** - *_Default flow. Capture with SDK Camera_ **_->_** _review._*
 
-* ****SYSTEM_CAMERA_CAPTURE_REVIEW**** - *_Capture with system default camera_ ****_->_**** _review._*
+* **SYSTEM_CAMERA_CAPTURE_REVIEW** - *_Capture with system default camera_ **_->_** _review._*
 
-* ****IMAGE_ATTACH_REVIEW**** - *_Attach/pass image_ ****_->_**** _review._*
+* **IMAGE_ATTACH_REVIEW** - *_Attach/pass image_ **_->_** _review._*
 
-****1. CAMERA_CAPTURE_REVIEW**** - *_Default flow of the CameraHelper. Includes Capture with SDK Camera -> Review Image._*
+**1. CAMERA_CAPTURE_REVIEW** - *_Default flow of the CameraHelper. Includes Capture with SDK Camera -> Review Image._*
 ```swift
 //swift
 
@@ -173,7 +156,7 @@ Config.CaptureSupport.CaptureMode = CaptureModes.CAMERA_CAPTURE_REVIEW
 
 CaptureSupport.CaptureMode = CaptureModesCAMERA_CAPTURE_REVIEW;
 ```
-****2. SYSTEM_CAMERA_CAPTURE_REVIEW**** - *_If user needs to capture an image with system default camera, this can be used. It includes Capture with system default camera -> Review_*.
+**2. SYSTEM_CAMERA_CAPTURE_REVIEW** - *_If user needs to capture an image with system default camera, this can be used. It includes Capture with system default camera -> Review_*.
 ```swift
 //swift
 
@@ -184,7 +167,7 @@ Config.CaptureSupport.CaptureMode = CaptureModes.SYSTEM_CAMERA_CAPTURE_REVIEW
 
 CaptureSupport.CaptureMode = CaptureModesSYSTEM_CAMERA_CAPTURE_REVIEW;
 ```
-****3. IMAGE_ATTACH_REVIEW**** - *_This option can be used if the user needs to review an image from their device's gallery. After attaching each image, the review and all dependent functionalities become available_*.
+**3. IMAGE_ATTACH_REVIEW** - *_This option can be used if the user needs to review an image from their device's gallery. After attaching each image, the review and all dependent functionalities become available_*.
 ```swift
 //swift
 
@@ -201,9 +184,9 @@ The SDK includes a supporting class called for static configuration. This class 
 
 This includes:  :
 
-****CaptureSupport**** - Contains all the Capture & review related configurations. ****Config.CaptureSupport**** contains various configurations as follows:
+**CaptureSupport** - Contains all the Capture & review related configurations. **Config.CaptureSupport** contains various configurations as follows:
 
-- ****`OutputPath`**** - To set the output directory in which the captured images will be saved. Base app should have permissions to write to the provided path.
+- **`OutputPath`** - To set the output directory in which the captured images will be saved. Base app should have permissions to write to the provided path.
 
 ```swift
 //Swift
@@ -215,8 +198,7 @@ Config.CaptureSupport.OutputPath = “pass output path as string”
 
 CaptureSupport.OutputPath = “pass output path as string”;
 ```
-
-- ****`MaxPage`**** - To set the number of captures to do on each camera session. And this can also  control  whether  the  capture  mode  is  single  or  multi  i.e
+- **`MaxPage`** - To set the number of captures to do on each camera session. And this can also  control  whether  the  capture  mode  is  single  or  multi  i.e
 
 > if  `MaxPage` <= 0 //  not  set:  means  unlimited.
 > If  `MaxPage`  >= 1 // means  limited.
@@ -237,8 +219,7 @@ Config.CaptureSupport.MaxPage = 0
 
 CaptureSupport.MaxPage = 0;
 ```
-
-- ****`ColorMode`****  -  To  Set  the  capture  color  mode-  supporting  color  and  grayscale.
+- **`ColorMode`**  -  To  Set  the  capture  color  mode-  supporting  color  and  grayscale.
 >`RGB` `GRAY`
 ```swift
 //Swift
@@ -250,8 +231,7 @@ Config.CaptureSupport.ColorMode = ColorModes.RGB
 
 CaptureSupport.ColorMode = ColorModesRGB
 ```
-
-- ****`EnableFlash`****  -  Enable  Document  capture  specific  flash  control  for  SDK  camera.
+- **`EnableFlash`**  -  Enable  Document  capture  specific  flash  control  for  SDK  camera.
 
 ```swift
 //Swift
@@ -263,11 +243,11 @@ Config.CaptureSupport.EnableFlash  =  true;
 
 CaptureSupport.EnableFlash  =  true;
 ```
-- ****`EnableTorchOnLowLight`**** - Automatically turns on the device’s torch/flashlight when low-light conditions are detected, ensuring clearer and more readable captures.
+- **`EnableTorchOnLowLight`** - Automatically turns on the device’s torch/flashlight when low-light conditions are detected, ensuring clearer and more readable captures.
 
   ```swift
   //Swift
-  
+
   Config.CaptureSupport.EnableTorchOnLowLight = true;
   ```
   ```objectivec
@@ -275,8 +255,7 @@ CaptureSupport.EnableFlash  =  true;
 
   CaptureSupport.EnableTorchOnLowLight = true;
   ```
-
-- ****`CaptureSound`****  -  To  Enable  camera  capture  sound.
+- **`CaptureSound`**  -  To  Enable  camera  capture  sound.
 
 ```swift
 //Swift
@@ -288,8 +267,7 @@ Config.CaptureSupport.CaptureSound  =  true;
 
 CaptureSupport.CaptureSound  =  true;
 ```
-
-- ****`ShowCaptureCountAndLimit`****  - Enable/Disable  Capture count as toast at bottom while capturing from  SDK camera.
+- **`ShowCaptureCountAndLimit`**  - Enable/Disable  Capture count as toast at bottom while capturing from  SDK camera.
 
 ```swift
 //Swift
@@ -301,8 +279,7 @@ Config.CaptureSupport.ShowCaptureCountAndLimit  =  true;
 
 CaptureSupport.ShowCaptureCountAndLimit  =  true;
 ```
-
-- ****`SDKInfo`****  - Contains  all  version  related  information  on  SDK.
+- **`SDKInfo`**  - Contains  all  version  related  information  on  SDK.
 
 ```swift
 //Swift
@@ -314,7 +291,7 @@ Config.CaptureSupport.SDKInfo
 
 CaptureSupport.SDKInfo;
 ```
-- ****`CameraToggle`****  -  Toggle  camera  between  front  and  back.
+- **`CameraToggle`**  -  Toggle  camera  between  front  and  back.
 
 `0` Disable camera toggle option.
 `1` Enable camera toggle option with Front camera by default.
@@ -329,10 +306,9 @@ Config.CaptureSupport.CameraToggle  =  2;
 
 CaptureSupport.CameraToggle  =  2;
 ```
-
-- ****`BottomStampData`**** - Allows adding custom text as a bottom stamp on captured documents.
-	- ****`$`****: Inserts a line break.  
-	- ****`{DATETIME}`****: PlaceHolder that Prints the current date and time from the device.
+- **`BottomStampData`** - Allows adding custom text as a bottom stamp on captured documents.
+	- **`$`**: Inserts a line break.
+	- **`{DATETIME}`**: PlaceHolder that Prints the current date and time from the device.
 
 ```swift
 //Swift
@@ -344,9 +320,8 @@ Config.CaptureSupport.BottomStampData = "{DATETIME} $ Extrieve Technologies";
 
 CaptureSupport.BottomStampData = "{DATETIME} $ Extrieve Technologies";
 ```
-
-- ****`Review`**** - Contains review related configurations. ****Config.CaptureSupport.Review**** contains configurations as follows:
-	- ****`enableAutoCorrectDocAngle`**** -  Enables or disables AI-based automatic document rotation correction.
+- **`Review`** - Contains review related configurations. **Config.CaptureSupport.Review** contains configurations as follows:
+	- **`enableAutoCorrectDocAngle`** -  Enables or disables AI-based automatic document rotation correction.
    	```swift
     //Swift
 
@@ -357,30 +332,23 @@ CaptureSupport.BottomStampData = "{DATETIME} $ Extrieve Technologies";
 
     CaptureSupport.Review.enableAutoCorrectDocAngle = true;
     ```
-    
-
-
 ## 3. `ImgHelper`
 
-Following  are  the  options/methods  available  from  class  ****`ImgHelper`**** :
+Following  are  the  options/methods  available  from  class  **`ImgHelper`** :
 
 To instanciate this class
 
 ```swift
-
 //Swift
 
 let ImgHelper = ImgHelper.GetInstance()
 ```
 ```objectivec
-
 //Objective-C
 
 ImgHelper *ImgHelper = [ImgHelper GetInstance];
-
 ```
-
-- ****_*SetImageQuality*_**** - *_Set the Quality of the image, Document_Quality isused. If documents are used further for any automations and OCR, use Document_Quality._*
+- **_*SetImageQuality*_** - *_Set the Quality of the image, Document_Quality isused. If documents are used further for any automations and OCR, use Document_Quality._*
 
 >*_Available Image Qualities_* :
 >1. `Photo_Quality`
@@ -401,8 +369,7 @@ ImgHelperObj.SetImageQuality(value: ImageQuality.Document_Quality)
 
 [ImgHelperObj SetImageQuality:ImageQualityDocument_Quality];
 ```
-
-- *****SetPageLayout***** - *_Set the Layout for the images generated/processed by the system._*
+- ***SetPageLayout*** - *_Set the Layout for the images generated/processed by the system._*
 >*_Available layouts_* : A1, A2, A3, **`A4`**, A5, A6, A7,PHOTO & CUSTOM
 
 *_A4 is the most recommended layout for document capture scenarios._*
@@ -419,8 +386,7 @@ ImgHelper.SetPageLayout(LayoutType.A4)
 
 [ImgHelperObj SetPageLayout:LayoutTypeA4];
 ```
-
-- *****SetDPI***** - *_Set DPI (depth per inch) for the image._*
+- ***SetDPI*** - *_Set DPI (depth per inch) for the image._*
 
 >*_Available DPI_* : DPI_150, **`DPI_200`**, DPI_300, DPI_500, DPI_600
 
@@ -438,11 +404,11 @@ ImgHelperObj.SetDPI(DPI._200)
 
 [ImgHelperObj SetDpi:DPI_200];
 ```
-- *****SetResizeMode***** - *_This method manages how the resizing of captured images are processed and output is created accordingly._*
+- ***SetResizeMode*** - *_This method manages how the resizing of captured images are processed and output is created accordingly._*
 >***Available Resize Modes:***
 >
 >`STRETCH_TO_EXACT_SIZE` - Stretches the image to match exact width & height.
->**`PRESERVE_ASPECT_ONLY`** - Tries to fit within the given width & height to preserve quality at its best. 	
+>**`PRESERVE_ASPECT_ONLY`** - Tries to fit within the given width & height to preserve quality at its best.
 >`FIT_WITH_ASPECT` - Output image will be the exact size with white background colour if the captured image does not fits.
 ```swift
 //swift
@@ -454,7 +420,7 @@ ImgHelper.shared.SetResizeMode(mode: ResizeMode.PRESERVE_ASPECT_ONLY)
 
 [ImgHelper.shared SetResizeModeWithMode:ResizeModePRESERVE_ASPECT_ONLY];
 ```
-- *****SetCustomLayOut***** - *_Sets the output image width and height, so that the output image will be resized accordingly. Accepted input parameters are in `inches` only._*
+- ***SetCustomLayOut*** - *_Sets the output image width and height, so that the output image will be resized accordingly. Accepted input parameters are in `inches` only._*
 ```swift
 //swift
 
@@ -465,7 +431,7 @@ ImgHelper.shared.SetCustomLayOut(CustomWidth: 0.8, CustomHeight: 1.1)
 
 [ImgHelper.shared  SetCustomLayOutWithCustomWidth:0.8  CustomHeight:1.1];
 ```
-- *****SetCustomLayOutInPixels***** - *_Sets the output image width and height, so that the output image will be resized accordingly. Accepted input parameters are in `pixels` only._*
+- ***SetCustomLayOutInPixels*** - *_Sets the output image width and height, so that the output image will be resized accordingly. Accepted input parameters are in `pixels` only._*
 ```swift
 //swift
 
@@ -476,8 +442,7 @@ ImgHelper.shared.SetCustomLayOutInPixels(CustomWidth: 640, CustomHeight: 480)
 
 [ImgHelper.shared  SetCustomLayOutInPixelsWithCustomWidth:640  CustomHeight:480];
 ```
-
-- *****GetThumbnail***** - *_This method Will build thumbnail for the given image in custom width,height & AspectRatio._*
+- ***GetThumbnail*** - *_This method Will build thumbnail for the given image in custom width,height & AspectRatio._*
 
 ```swift
 //Swift
@@ -495,9 +460,7 @@ int reqHeight,
 int reqWidth,
 Boolean AspectRatio )throws ImgException.
 */
-
 ```
-
 ```objectivec
 //Objective-C
 
@@ -511,10 +474,8 @@ int reqWidth,
 Boolean AspectRatio,
 NSError err ).
 */
-
 ```
-
-- *****CompressToJPEG***** - *_This method will Compress the provided bitmap image and will save to given path._*
+- ***CompressToJPEG*** - *_This method will Compress the provided bitmap image and will save to given path._*
 
 ```swift
 //Swift
@@ -525,19 +486,15 @@ let isCompressed = ImgHelper.shared.CompressToJPEG(image: image, outputURI: jpeg
 Boolean CompressToJPEG(UIImage image,String outputFilePath)
 throws ImgException
 */
-
 ```
-
 ```objectivec
 //Objective-C
 
 BOOL isCompressed = [ImageHelper CompressToJPEG:image :outputJPEGURL.absoluteString];
 ```
-
-- *****RotateBitmap***** - *_This method will rotate the image to preferred orientation._*
+- ***RotateBitmap*** - *_This method will rotate the image to preferred orientation._*
 
 ```swift
-
 //Swift
 
 UIImage rotatedBm = ImgHelper.shared.RotateBitmap(image: img, orientation: ImageOrientation.left);
@@ -562,10 +519,8 @@ enum ImageOrientation : Int {
 //Objective-C
 
 UIImage *rotatedImage = [ImageHelper RotateBitmap:image :ImageOrientationUp :&err];
-
 ```
-
-- ****BuildTiff****  -  Build `.tiff file` output from the list of images shared.
+- **BuildTiff**  -  Build `.tiff file` output from the list of images shared.
 
 ```swift
 //Swift
@@ -581,7 +536,6 @@ catch{
 *@param  "Image  File  path  collection  as  Array of String"
 
 *@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::TIFF  file  path".
-
 ```
 ```objectivec
 //Objective-C
@@ -592,8 +546,7 @@ NSString *outputPath = [ImgHelper.shared BuildTiff:imageArray TiffFilePath:tiffF
 *@param  "Image  File  path  collection  as  Array of String"
 *@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::TIFF  file  path".
 ```
-
-- ****BuildPDF****  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
+- **BuildPDF**  -  Build  PDF  file  output  file  from  last  captured  set  of  images.
 
 ```swift
 //Swift
@@ -614,11 +567,10 @@ catch {
 NSError *error = nil;
 NSString *outputPath = [ImgHelper.shared BuildPdf:ImageArray PdfFilePath:pdfFilePath error:&error];
 
-
 *@param  "Image  File  path  collection  as  Array of String"
 *@return  on  failure  =  "FAILED:::REASON"  ||  on  success  =  "SUCCESS:::PDF  file  path".
 ```
->  ****Recommended Settings:****
+>  **Recommended Settings:**
 
 >  - ImageQuality: `Document_Quality`
 
@@ -628,8 +580,8 @@ NSString *outputPath = [ImgHelper.shared BuildPdf:ImageArray PdfFilePath:pdfFile
 
 >  - ResizeMode: `PRESERVE_ASPECT_ONLY`
 
-- ****ReadImageInfo**** - Reads metadata from an image file and returns a JSON string containing information such as PageCount, Height, Width, and ColorType (`COLOR`, `BW`, or `GREY`).
-  
+- **ReadImageInfo** - Reads metadata from an image file and returns a JSON string containing information such as PageCount, Height, Width, and ColorType (`COLOR`, `BW`, or `GREY`).
+
  	Supported image formats:
 	-   **TIFF**
 	-   **JPEG / JPG**
@@ -638,7 +590,7 @@ NSString *outputPath = [ImgHelper.shared BuildPdf:ImageArray PdfFilePath:pdfFile
 
    ```swift
    //Swift
-   
+
 	Do{
 	   let jsonString = ImgHelper.shared.ReadImageInfo(inputUrl: imagepath)
 	   print(jsonString)
@@ -646,27 +598,25 @@ NSString *outputPath = [ImgHelper.shared BuildPdf:ImageArray PdfFilePath:pdfFile
        print(error)
    }
    ```
-
    ```objectivec
    //Objective-C
 
    NSString *jsonString = [ImgHelper.shared ReadImageInfo:imagePath];
    NSLog(@"%@", jsonString);
    ```
-   
-  ****Parameter****
-  - ****`inputUrl`**** - Image file path as `String`.
- 
-  ****ReturnValue****
-  
-  ****Failure Response**** (Returned as String containing JSON)
+  **Parameter**
+  - **`inputUrl`** - Image file path as `String`.
+
+  **ReturnValue**
+
+  **Failure Response** (Returned as String containing JSON)
   ````json
   {
 	 "Status": false,
 	 "ERROR_MESSAGE": "Reason for failure"
   }
   ````
-  ****Success Response**** (Returned as String containing JSON)
+  **Success Response** (Returned as String containing JSON)
   ````json
   {
 	 "FILESIZE": "146 KB",
@@ -681,8 +631,8 @@ NSString *outputPath = [ImgHelper.shared BuildPdf:ImageArray PdfFilePath:pdfFile
 	  ]
 	}
 	````
-	****Field Description****
-	
+	**Field Description**
+
 	| Field        | Description                                           |
 	|-------------|-------------------------------------------------------|
 	| FILESIZE    | Total size of the image file in KB                    |
@@ -692,36 +642,35 @@ NSString *outputPath = [ImgHelper.shared BuildPdf:ImageArray PdfFilePath:pdfFile
 	| HEIGHT      | Height of the image in pixels                         |
 	| COLOR_TYPE  | Image color type: COLOR, GREY, or BW                  |
 
-
 ## ImgException
 
-As a part of exceptional error handling ****ImgException**** class is available.
+As a part of exceptional error handling **ImgException** class is available.
 
 - *_Following are the possible errors and corresponding codes_*:
 
-- CREATE_FILE_ERROR= ****-100****;
+- CREATE_FILE_ERROR= **-100**;
 
-- IMAGE_ROTATION_ERROR= ****-101****;
+- IMAGE_ROTATION_ERROR= **-101**;
 
-- LOAD_TO_BUFFER_ERROR= ****-102****;
+- LOAD_TO_BUFFER_ERROR= **-102**;
 
-- DELETE_FILE_ERROR= ****-103****;
+- DELETE_FILE_ERROR= **-103**;
 
-- GET_ROTATION_ERROR= ****-104****;
+- GET_ROTATION_ERROR= **-104**;
 
-- ROTATE_BITMAP_ERROR= ****-105****;
+- ROTATE_BITMAP_ERROR= **-105**;
 
-- BITMAP_RESIZE_ERROR= ****-106****;
+- BITMAP_RESIZE_ERROR= **-106**;
 
-- CAMERA_HELPER_ERROR= ****-107****;
+- CAMERA_HELPER_ERROR= **-107**;
 
-- LOG_CREATION_ERROR= ****-108****;
+- LOG_CREATION_ERROR= **-108**;
 
-- IMAGE_COMPRESSION_ERROR= ****-109****;
+- IMAGE_COMPRESSION_ERROR= **-109**;
 
 ## 4. `HumanFaceHelper`
 
-QuickCapture SDK equipped with advanced face identification intelligence can accurately detect human faces within documents and match them precisely. ****SDK needs to be activated using a proper license**** with `Config.License.Acivate()`; for the plus features to initialize.
+QuickCapture SDK equipped with advanced face identification intelligence can accurately detect human faces within documents and match them precisely. **SDK needs to be activated using a proper license** with `Config.License.Activate()`; for the plus features to initialize.
 
 `Initialization Callback`:
 
@@ -774,7 +723,7 @@ catch{
 
 @Param - mainBundle //bundle of the caller application.
 @Param - callback 	//object of the class which inherits InitializationCallback or self if inherited by the same class which is instanciating.
-@Return 			//instance  of the HumanFaceHelper class 
+@Return 			//instance  of the HumanFaceHelper class
 ```
 ```objectivec
 //objective-c
@@ -786,7 +735,7 @@ HumanFaceHelper *humanFaceObj = [[HumanFaceHelper alloc] initWithMainBundle:bund
 
 @Param - mainBundle //bundle of the caller application.
 @Param - callback 	//object of the class which inherits InitializationCallback or self if inherited by the same class which is instanciating.
-@Return 			//instance  of the HumanFaceHelper class 
+@Return 			//instance  of the HumanFaceHelper class
 ```
 OR
 _You can directly instantiate using Anonymous style callbacks within the statement_
@@ -816,11 +765,10 @@ let humanFaceObj = try HumanFaceHelper(
         )
     }()
 )
-``` 
+```
+Following are the options/methods available from the class **`HumanFaceHelper`** :
 
-Following are the options/methods available from the class ****`HumanFaceHelper`**** :
-
-- ****DetectHumanFaces**** \- DetectHumanFaces Method from `humanFaceObj`  will Identify human faces from provided image and return the detected details in json string format using `response callbacks`. It also supports both Anonymous style callback or inherited protocol style like we did while instantiating.
+- **DetectHumanFaces** \- DetectHumanFaces Method from `humanFaceObj`  will Identify human faces from provided image and return the detected details in json string format using `response callbacks`. It also supports both Anonymous style callback or inherited protocol style like we did while instantiating.
 
 ```swift
 //swift
@@ -899,7 +847,6 @@ typedef void (^FailureBlock)(NSString *error);
         NSLog(@"❌ Detection Failed: %@", error);
     }
 )];
-
 ```
 Following is a sample of response structure :
 ```json
@@ -907,20 +854,20 @@ Following is a sample of response structure :
 	STATUS:  true/false,  //Detection status
 	DESCRIPTION :  "SUCCESS",  //Success or failure
 	description DOC_ID :  0,  //Identifier/index of the used document.
-	FACE_DATA :[  
-	//Collection of identified face data 
+	FACE_DATA :[
+	//Collection of identified face data
 		{
 			ID :  0,  //Identifier/index of face.
-			LEFT :  0, 
-			TOP :  0, 
-			RIGHT :  0, 
-			BOTTOM :  0  
-			//Each location of face in document  
-		}  
-	]  
+			LEFT :  0,
+			TOP :  0,
+			RIGHT :  0,
+			BOTTOM :  0
+			//Each location of face in document
+		}
+	]
 }
 ```
-- ****MatchHumanFaces**** \- DetectHumanFaces Method from ****`humanFaceObj`**** With AI intelligence, analyses the provided face data and returns a response on whether the provided faces are of same human or not. `Document Id` and `Face Id` will be provided by `DetectHumanFaces`, and same can be used.
+- **MatchHumanFaces** \- DetectHumanFaces Method from **`humanFaceObj`** With AI intelligence, analyses the provided face data and returns a response on whether the provided faces are of same human or not. `Document Id` and `Face Id` will be provided by `DetectHumanFaces`, and same can be used.
 
 ```swift
 //swift
@@ -1008,11 +955,9 @@ typedef void (^FailureBlock)(NSString *error);
 @end
 //-----------------------------------------------------
 
-
 //MACRO define before usage
 #define MAKE_RESPONSE_CALLBACK(successBlock, failureBlock) \
   [[AnonymousResponseCallback alloc] initWithSuccess:successBlock failure:failureBlock]
-
 
 //Usage
 [humanFaceObj MatchHumanFacesWithFirstDocumentId:id1
@@ -1043,182 +988,68 @@ Following is a sample response structure :
 
 The match level is determined based on the accuracy percentage, which reflects the similarity between two facial images. The table below provides detailed descriptions for each match level.
 
-| ****Match Percentage****  |  ****Match Level****  |  ****Description**** |
-
+| **Match Percentage**  |  **Match Level**  |  **Description** |
 |--|--|--|
-
-| ****90% - 100%**** | ✅ ****Highly Reliable Match**** | Faces match with extremely high confidence. They are almost certainly the same person. Suitable for critical identification applications. |
-
-| ****75% - 89%**** | ✅ ****Strong Match**** | Faces matched successfully with a high probability of being the same person. Reliable for most identity verification use cases. |
-
-| ****65% - 74%**** | ⚠️ ****Moderate Match**** | Faces show good similarity, but further validation may be required. Manual verification is recommended before confirmation. |
-
-| ****50% - 64%**** | ⚠️ ****Low Confidence Match**** | Faces have some resemblance, but the similarity is not strong enough to confirm identity. Additional verification is needed. |
-
-| ****0% - 49%**** | ❌ ****No Match**** | Faces do not match. There is minimal similarity, and they are highly unlikely to be the same person. |
-
-  
+| **90% - 100%** | ✅ **Highly Reliable Match** | Faces match with extremely high confidence. They are almost certainly the same person. Suitable for critical identification applications. |
+| **75% - 89%** | ✅ **Strong Match** | Faces matched successfully with a high probability of being the same person. Reliable for most identity verification use cases. |
+| **65% - 74%** | ⚠️ **Moderate Match** | Faces show good similarity, but further validation may be required. Manual verification is recommended before confirmation. |
+| **50% - 64%** | ⚠️ **Low Confidence Match** | Faces have some resemblance, but the similarity is not strong enough to confirm identity. Additional verification is needed. |
+| **0% - 49%** | ❌ **No Match** | Faces do not match. There is minimal similarity, and they are highly unlikely to be the same person. |
 
 ### Usage of Results
 
-  
+#### ✅ **Highly Reliable Match (90% - 100%)**
 
-#### ✅ ****Highly Reliable Match (90% - 100%)****
+- **Best for**: Secure identity verification, biometric authentication, and critical decision-making.
 
-- ****Best for****: Secure identity verification, biometric authentication, and critical decision-making.
+- **Action**: **Automatic acceptance. No further review required.**
 
-- ****Action****: ****Automatic acceptance. No further review required.****
+#### ✅ **Strong Match (75% - 89%)**
 
-  
+- **Best for**: General identification scenarios where strong confidence is required.
 
-#### ✅ ****Strong Match (75% - 89%)****
+- **Action**: **Safe for automatic approval** in most applications.
 
-- ****Best for****: General identification scenarios where strong confidence is required.
+#### ⚠️ **Moderate Match (65% - 74%)**
 
-- ****Action****: ****Safe for automatic approval**** in most applications.
+- **Best for**: Cases where additional review is acceptable before finalizing the decision.
 
-  
+- **Action**: **Manual verification recommended before confirming a match.**
 
-#### ⚠️ ****Moderate Match (65% - 74%)****
+#### ⚠️ **Low Confidence Match (50% - 64%)**
 
-- ****Best for****: Cases where additional review is acceptable before finalizing the decision.
+- **Best for**: Situations requiring strict validation before acceptance.
 
-- ****Action****: ****Manual verification recommended before confirming a match.****
+- **Action**: **Use alternative verification methods. Do not rely on this score alone.**
 
-  
+#### ❌ **No Match (0% - 49%)**
 
-#### ⚠️ ****Low Confidence Match (50% - 64%)****
+- **Best for**: Definitive rejection of mismatches.
 
-- ****Best for****: Situations requiring strict validation before acceptance.
+- **Action**: **Automatically reject matches in this range.**
 
-- ****Action****: ****Use alternative verification methods. Do not rely on this score alone.****
+## Notes on accuracy
 
-  
-
-#### ❌ ****No Match (0% - 49%)****
-
-- ****Best for****: Definitive rejection of mismatches.
-
-- ****Action****: ****Automatically reject matches in this range.****
-
-# Notes
-
-### Regarding accuracy :
-
-  
 The accuracy of face detection and matching technologies depends on input image quality, including factors such as image distortion, rotation angles, lighting conditions, and color consistency. While offline solutions effectively reduce manual effort and operational costs, they do not guarantee 100% reliability in all scenarios.
-
-  
 
 This system enables on-device verification, efficiently identifying doubtful matches and flagging them for backend verification within the offline environment. By integrating backend validation, the system enhances reliability without relying on external APIs. Additionally, when a match achieves high accuracy as defined in the accuracy thresholds, the system can be considered reliable even without backend verification, making it a valuable solution for offline scenarios where external validation is limited.
 
-  
-
 For use cases demanding exceptionally high accuracy and reliability, an API-based advanced system is recommended.
 
-  
+## Other platforms and related SDKs
 
-**Extrieve** - *Your Expert in Document Management & AI Solutions.*
+- QuickCapture for [Android](https://github.com/ExtrieveTechnologies/QuickCapture_Android), [React Native](https://github.com/ExtrieveTechnologies/QuickCapture_react_native), [Flutter](https://pub.dev/packages/quickcapture), [Web](https://github.com/ExtrieveTechnologies/QuickCapture_WEB)
+- [QuickCapture overview](https://github.com/ExtrieveTechnologies/QuickCapture): all platforms, features and FAQ
+- [SplicerAI](https://github.com/ExtrieveTechnologies/SplicerAi): KYC and document data extraction, classification and Aadhaar masking
+- [ImageWizHelper](https://github.com/ExtrieveTechnologies/ImageWizHelper): server and desktop image compression and conversion
 
-<hr/>
+## Support
 
-<h2 align="center">🌍 Explore • Build • Collaborate</h2>
+- **Documentation:** [docs.extrieve.in](https://docs.extrieve.in/)
+- **Technical questions:** [GitHub Discussions](https://github.com/orgs/ExtrieveTechnologies/discussions/categories/technical-support)
+- **Developer support:** [devsupport@extrieve.com](mailto:devsupport@extrieve.com)
+- **Sales and evaluation:** [extrieve.com/contact](https://www.extrieve.com/contact/)
 
-<p align="center">
-  Whether you are evaluating, integrating, or contributing —
-  there are many ways to engage with Extrieve.
-</p>
+---
 
-<br/>
-
-<div align="center">
-
-  <a href="https://docs.extrieve.in/" target="_blank">
-    <img alt="Documentation"
-         src="https://img.shields.io/badge/%20Documentation-APIs%20%26%20SDKs-0A66C2?style=for-the-badge&logo=readthedocs&logoColor=white">
-  </a>
-  &nbsp;
-
-  <a href="https://github.com/orgs/ExtrieveTechnologies/discussions" target="_blank">
-    <img alt="Community"
-         src="https://img.shields.io/badge/%20Community-Open%20Discussions-6f42c1?style=for-the-badge&logo=github&logoColor=white">
-  </a>
-  &nbsp;
-
-  <a href="https://play.google.com/store/apps/details?id=com.extrieve.demo" target="_blank">
-    <img alt="Android Demo"
-         src="https://img.shields.io/badge/%20Extrieve%20DEMO%20APP-34A853?style=for-the-badge&logo=googleplay&logoColor=white">
-  </a>
-  &nbsp;
-
-  <a href="https://contact.extrieve.com?ptype=QuickCapture_General" target="_blank">
-    <img alt="Contact"
-         src="https://img.shields.io/badge/%20Connect-Talk%20to%20Us-00b894?style=for-the-badge&logo=gmail&logoColor=white">
-  </a>
-
-</div>
-
-<br/>
-
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🧑‍💻 For Developers</h3>
-      <p>
-        Access SDKs, APIs, and integration guides designed for real-world,
-        production-scale deployments.
-      </p>
-      <p>
-        <a href="https://docs.extrieve.in/" target="_blank"><b>Get started with documentation →</b></a>
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>🤝 Open Collaboration</h3>
-      <p>
-        Ask questions, propose ideas, share feedback, or discuss use cases
-        directly with the Extrieve team.
-      </p>
-      <p>
-        <a href="https://github.com/orgs/ExtrieveTechnologies/discussions" target="_blank"><b>Join GitHub Discussions →</b></a>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>📲 Experience the SDK</h3>
-      <p>
-        Try our Android demo app to explore document capture and AI features
-        in action.
-      </p>
-      <p>
-        <a href="https://play.google.com/store/apps/details?id=com.extrieve.demo" target="_blank"><b>View Android demo app →</b></a>
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>🏢 Work With Extrieve</h3>
-      <p>
-        Interested in evaluation, enterprise integration,
-        partnerships, or joint development?
-      </p>
-      <p>
-        <a href="https://contact.extrieve.com?ptype=QC_ANDROID" target="_blank"><b>Contact our team →</b></a>
-      </p>
-    </td>
-  </tr>
-</table>
-
-
-<br/>
-
-<p align="center">
-  <i>
-    Open to collaboration. Built for enterprise. Designed with developers in mind.
-  </i>
-</p>
-
-<p align="center">
-  <sub>
-    © 1996–2026 <a href="https://www.extrieve.com/">Extrieve Technologies</a>. All rights reserved.
-  </sub>
-</p
-
+© 1996–2026 [Extrieve Technologies](https://www.extrieve.com/). All rights reserved.
